@@ -10,4 +10,4 @@ services:
     tty: true
     working_dir: /app
     #rerun used in below command
-    command:  bash -c "bundle config set path /app/local_gems && bundle exec rerun ruby /app/src/hello.rb"
+    command:  bash -c "bundle config set path /app/local_gems && bundle exec rerun ruby --dir src /app/src/hello.rb"
