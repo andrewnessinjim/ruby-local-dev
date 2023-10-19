@@ -1,0 +1,11 @@
+version: '3'
+services:
+  ruby-base:
+    image: ruby:3.2.2
+    volumes:
+      - ./app:/app
+    working_dir: /app
+  install-gems:
+    extends:
+      service: ruby-base
+    command: bash -c "bundle config set path /app/local_gems && bundle install"

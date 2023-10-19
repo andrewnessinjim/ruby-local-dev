@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  local-ruby-server:
+    image: ruby:3.2.2
+    volumes:
+      - ./app:/app
+    ports:
+      - '4567:4567'
+    tty: true
+    working_dir: /app
+    #rerun used in below command
+    command:  bash -c "bundle config set path /app/local_gems && bundle exec rerun ruby /app/src/hello.rb"
